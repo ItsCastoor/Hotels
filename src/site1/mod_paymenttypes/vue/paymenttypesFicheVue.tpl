@@ -68,8 +68,8 @@
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
                         <li><a href="#index.php">Accueil</a></li>
-                        <li><a href="#CODE"><!-- Libelle --></a></li>
-                        <li class="active"><!-- Libelle --></li>
+                        <li><a href="index.php?gestion=paymenttypes">Liste des paiements</a></li>
+                        <li class="active">Fiche d'un moyen de paiement</li>
                     </ol>
                 </div>
             </div>

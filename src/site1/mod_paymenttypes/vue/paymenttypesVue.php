@@ -38,7 +38,8 @@ class PaymenttypesVue
         $this->tpl->display('mod_paymenttypes/vue/paymenttypesListeVue.tpl');
     }
 
-    public function genererAffichageFiche($valeurs,$action){
+    public function genererAffichageFiche($valeurs,$action): void
+    {
 
         $this->chargementValeurs();
 
@@ -46,7 +47,13 @@ class PaymenttypesVue
 
         $this->tpl->assign('unPaiementtype', $valeurs);
 
-        $this->tpl->assign('action', $action);
+        if($action == "ajout") {
+            $this->tpl->assign('action', 'ajout');
+            $this->tpl->assign('readonly', 'readonly');
+        } else {
+            $this->tpl->assign('action', 'modification');
+            $this->tpl->assign('readonly', '');
+        }
 
         $this->tpl->display('mod_paymenttypes/vue/paymenttypesFicheVue.tpl');
 

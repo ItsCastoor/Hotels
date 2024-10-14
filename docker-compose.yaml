@@ -1,0 +1,48 @@
+services :
+  web:
+    image: nginx:latest
+    container_name: exo_nginx
+    # restart: always # unless-stopped | on-failure | no
+    ports:
+      - "9000:80"
+      - "9001:81"
+      - "9003:83"
+    volumes:
+      - ./src:/var/www/html
+      - ./nginx/:/etc/nginx/conf.d/
+    links:
+      - php
+  db:
+    image: mariadb:latest
+    container_name: exo_db
+    environment:
+      - MARIADB_ROOT_PASSWORD=cda
+      - MARIADB_USER=exo_user
+      - MARIADB_PASSWORD=exo_pwd
+      - MARIADB_DATABASE=exo_db
+    ports:
+      - "3307:3306"
+    volumes:
+     # - ./db/:/var/lib/mysql/
+      - ./dump/:/docker-entrypoint-initdb.d/
+  php:
+    build:
+      context: ./php/
+      dockerfile: Dockerfile
+    container_name: exo_php
+    volumes:
+      - ./src:/var/www/html/
+    tmpfs:
+      - /tmp
+#    command: sh -c "cd site1 && composer install --ignore-platform-reqs && php-fpm"
+    command: sh -c "cd site1 && php-fpm"
+    links:
+      - db
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: exo_phpmyadmin
+    ports:
+      - "9002:80"
+    links:
+      - db:db

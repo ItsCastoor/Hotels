@@ -1,0 +1,6 @@
+src/*/vendor/
+src/*/node_modules/
+.env
+node_modules/
+.idea/
+src/*/templates_c/

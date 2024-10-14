@@ -29,10 +29,63 @@ class PaymenttypesControleur
 
         $valeurs = $this->oModele->getUnPaymenttypes();
 
-        $action = 'consulter';
+        $action = $_POST['action'];
 
         $this->oVue->genererAffichageFiche($valeurs,$action);
 
+
+    }
+    public function form_ajouter(){
+
+        $valeurs = "";
+
+        $action = $_POST['action'];
+
+        $this->oVue->genererAffichageFiche($valeurs,$action);
+
+    }
+    public function ajouter()
+    {
+        if($this->oModele->addUnPaymenttypes()) {
+            $this->lister();
+        }else{
+            $this->form_ajouter();
+        }
+    }
+    public function form_modifier(){
+
+        $valeurs = $this->oModele->getUnPaymenttypes();
+
+        $action = $_POST['action'];
+
+        $this->oVue->genererAffichageFiche($valeurs,$action);
+
+    }
+    public function modifier()
+    {
+        if($this->oModele->updateUnPaymenttypes()) {
+            $this->lister();
+        }else{
+            $this->form_modifier();
+        }
+    }
+    public function form_supprimer(){
+
+        $valeurs = $this->oModele->getUnPaymenttypes();
+
+        $action = $_POST['action'];
+
+        $this->oVue->genererAffichageFiche($valeurs,$action);
+
+    }
+    public function supprimer(): void
+    {
+
+        if($this->oModele->deleteUnPaymenttypes()) {
+            $this->lister();
+        }else{
+            $this->form_supprimer();
+        }
 
     }
 }

@@ -120,8 +120,7 @@
                                                 <input type="hidden" name="gestion" value="paymenttypes">
                                                 <input type="hidden" name="action" value="form_consulter">
                                                 <input type="hidden" name="Payment" value="{$paymenttype->getPayment()}">
-                                                <input id="pImage" type="image" name="btn_consulter"
-                                                       src='public/images/icones/p16.png'>
+                                                <input id="pImage" type="image" name="btn_consulter" src='public/images/icones/p16.png'>
                                             </form>
                                         </td>
                                         <td class="pos-actions">
@@ -129,7 +128,7 @@
                                                 <input type="hidden" name="gestion" value="paymenttypes">
                                                 <input type="hidden" name="action" value="form_modifier">
                                                 <input type="hidden" name="Payment" value="{$paymenttype->getPayment()}">
-                                                <input id="pImage" type="image" name="btn_modifier" src='public/images/icones/m16.png'
+                                                <input id="pImage" type="image" name="btn_modifier" src='public/images/icones/m16.png'>
                                             </form>
                                         </td>
                                         <td class="pos-actions">
@@ -138,8 +137,7 @@
                                                 <input type="hidden" name="action" value="form_supprimer">
                                                 <input type="hidden" name="Payment" value="{$paymenttype->getPayment()}">
 
-                                                <input id="sImage" type="image" name="btn_supprimer"
-                                                       src='public/images/icones/s16.png'>
+                                                <input id="sImage" type="image" name="btn_supprimer" src='public/images/icones/s16.png'>
                                             </form>
                                         </td>
 

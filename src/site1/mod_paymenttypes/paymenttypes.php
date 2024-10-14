@@ -16,7 +16,8 @@ class Paymenttypes
 
 
 
-    public function choixAction(){
+    public function choixAction(): void
+    {
 
         if(isset($this->parametre['action'])){
 
@@ -24,10 +25,13 @@ class Paymenttypes
 
                 case 'form_ajouter' :
 
-                    echo "Vers formulaire en ajout";
-                    die();
-
                     $this->oControleur->form_ajouter();
+
+                    break;
+
+                case 'ajouter' :
+
+                    $this->oControleur->ajouter();
 
                     break;
 
@@ -39,19 +43,25 @@ class Paymenttypes
 
                 case 'form_modifier' :
 
-                    echo "Vers formulaire en modification";
-                    die();
-
                     $this->oControleur->form_modifier();
+
+                    break;
+
+                case 'modifier' :
+
+                    $this->oControleur->modifier();
 
                     break;
 
                 case 'form_supprimer' :
 
-                    echo "Vers formulaire en suppression";
-                    die();
-
                     $this->oControleur->form_supprimer();
+
+                    break;
+
+                case 'supprimer' :
+
+                    $this->oControleur->supprimer();
 
                     break;
             }

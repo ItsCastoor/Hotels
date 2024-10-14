@@ -87,27 +87,34 @@
                         <div class="card-header"><strong><!-- TITRE PAGE --></strong></div>
                         <form action="index.php" method="POST">
                             <input type="hidden" name="gestion" value="paymenttypes">
+                            <input type="hidden" name="action" value="{$action}">
 
                             <div class="card-body card-block">
                                 <!-- ICI CHAMPS DU FORMULAIRE -->
-                                {if $action != 'ajouter'}
+                            {if $action != 'ajouter'}
                                 <div class="form-group">
                                     <label for="id" class="form-control-label">ID</label>
-                                    <input type="text" id="id" name="id" class="form-control" value="{$id|default:''}" readonly>
+                                    <input type="text" id="id" name="id" class="form-control" value="{$unPaiementtype->getPayment()}" readonly>
                                 </div>
-                                {/if}
                                 <div class="form-group">
                                     <label for="type_paiement" class="form-control-label">Type de Paiement</label>
-                                    <input type="text" id="type_paiement" name="type_paiement" class="form-control" value="{$type_paiement|default:''}" required>
+                                    <input type="text" id="type_paiement" name="type_paiement" class="form-control" value="{$unPaiementtype->getDescription()}" {$readonly}>
                                 </div>
+                                {else}
+                                <div class="form-group">
+                                    <label for="type_paiement" class="form-control-label">Type de Paiement</label>
+                                    <input type="text" id="type_paiement" name="type_paiement" class="form-control" value="" {$readonly}>
+                                </div>
+                                {/if}
                             </div>
+
                             <div class="card-body card-block">
                                 <div class="col-md-6">
                                     <input type='button' class="btn btn-submit" value='Retour' onclick='location.href = "index.php?gestion=paymenttypes"'>
                                 </div>
-                                {if $action = 'consulter'}
+                                {if $action != 'consulter'}
                                     <div class="col-md-6">
-                                        <button type="submit" class="btn btn-primary">Valider</button>
+                                        <button type="submit" class="btn btn-primary">{$titreBtnSubmit}</button>
                                     </div>
                                 {/if}
                                 <br>

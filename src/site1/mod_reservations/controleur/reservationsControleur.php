@@ -1,7 +1,7 @@
 <?php
 
 
-class PaymenttypesControleur
+class ReservationsControleur
 {
 
     private $parametre = array(); //tableau
@@ -12,22 +12,22 @@ class PaymenttypesControleur
 
         $this->parametre = $parametre;
 
-        $this->oModele = new PaymenttypesModele($parametre);
+        $this->oModele = new ReservationsModele($parametre);
 
-        $this->oVue = new PaymenttypesVue($parametre);
+        $this->oVue = new ReservationsVue($parametre);
     }
 
     public function lister(){
 
-        $valeurs = $this->oModele->getListePaymenttypes();
+        $valeurs = $this->oModele->getListeReservations();
 
-        $this->oVue->genererAffichagePaymenttypes($valeurs);
+        $this->oVue->genererAffichageReservations($valeurs);
 
     }
 
     public function form_consulter(){
 
-        $valeurs = $this->oModele->getUnPaymenttypes();
+        $valeurs = $this->oModele->getUneReservation();
 
         $action = $_POST['action'];
 
@@ -46,7 +46,7 @@ class PaymenttypesControleur
     }
     public function ajouter()
     {
-        if($this->oModele->addUnPaymenttypes()) {
+        if($this->oModele->addUneReservation()) {
             $this->lister();
         }else{
             $this->form_ajouter();
@@ -54,7 +54,7 @@ class PaymenttypesControleur
     }
     public function form_modifier(){
 
-        $valeurs = $this->oModele->getUnPaymenttypes();
+        $valeurs = $this->oModele->getUneReservation();
 
         $action = $_POST['action'];
 
@@ -63,7 +63,7 @@ class PaymenttypesControleur
     }
     public function modifier()
     {
-        if($this->oModele->updateUnPaymenttypes()) {
+        if($this->oModele->updateUneReservation()) {
             $this->lister();
         }else{
             $this->form_modifier();
@@ -71,7 +71,7 @@ class PaymenttypesControleur
     }
     public function form_supprimer(){
 
-        $valeurs = $this->oModele->getUnPaymenttypes();
+        $valeurs = $this->oModele->getUneReservation();
 
         $action = $_POST['action'];
 
@@ -81,7 +81,7 @@ class PaymenttypesControleur
     public function supprimer(): void
     {
 
-        if($this->oModele->deleteUnPaymenttypes()) {
+        if($this->oModele->deleteUneReservation()) {
             $this->lister();
         }else{
             $this->form_supprimer();

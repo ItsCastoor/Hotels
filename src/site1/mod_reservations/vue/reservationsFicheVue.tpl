@@ -68,7 +68,7 @@
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
                         <li><a href="#index.php">Accueil</a></li>
-                        <li><a href="index.php?gestion=paymenttypes">Liste des paiements</a></li>
+                        <li><a href="index.php?gestion=reservations">Liste des paiements</a></li>
                         <li class="active">Fiche d'un moyen de paiement</li>
                     </ol>
                 </div>
@@ -86,7 +86,7 @@
                     <div class="card">
                         <div class="card-header"><strong><!-- TITRE PAGE --></strong></div>
                         <form action="index.php" method="POST">
-                            <input type="hidden" name="gestion" value="paymenttypes">
+                            <input type="hidden" name="gestion" value="reservations">
                             <input type="hidden" name="action" value="{$action}">
 
                             <div class="card-body card-block">
@@ -94,7 +94,7 @@
                                 {if $action != 'ajouter'}
                                 <div class="form-group">
                                     <label for="id" class="form-control-label">ID</label>
-                                    <input type="text" id="id" name="id" class="form-control" value="{$unPaiementtype->getPayment()}" readonly>nn
+                                    <input type="text" id="id" name="id" class="form-control" value="{$unPaiementtype->getPayment()}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="type_paiement" class="form-control-label">Type de Paiement</label>

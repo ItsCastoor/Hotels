@@ -91,7 +91,7 @@
 
                             <div class="card-body card-block">
                                 <!-- ICI CHAMPS DU FORMULAIRE -->
-                            {if $action != 'ajouter'}
+                                {if $action != 'ajouter'}
                                 <div class="form-group">
                                     <label for="id" class="form-control-label">ID</label>
                                     <input type="text" id="id" name="id" class="form-control" value="{$unPaiementtype->getPayment()}" readonly>

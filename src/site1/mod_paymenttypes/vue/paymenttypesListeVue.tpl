@@ -69,7 +69,7 @@
                     <ol class="breadcrumb text-right">
                         <li><a href="index.php">Accueil</a></li>
                         <li><a href="index.php?gestion=paymenttypes">Types de paiements</a></li>
-                        <li class="active">{$titreVue}</li>
+{*                        <li class="active">{$titreVue}</li>*}
                     </ol>
                 </div>
             </div>

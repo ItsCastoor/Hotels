@@ -43,7 +43,6 @@ class PaymenttypesVue
 
         $this->chargementValeurs();
 
-
         $this->tpl->assign('unPaiementtype', $valeurs);
 
 

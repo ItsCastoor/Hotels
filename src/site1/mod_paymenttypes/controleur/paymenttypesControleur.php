@@ -37,6 +37,8 @@ class PaymenttypesControleur
     }
     public function form_ajouter(){
 
+        var_dump($_POST);
+        die();
         $valeurs = "";
 
         $action = $_POST['action'];

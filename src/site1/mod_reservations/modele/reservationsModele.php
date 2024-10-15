@@ -47,7 +47,7 @@ class ReservationsModele extends modele
 
         $sql = "SELECT * FROM reservations WHERE ResNo = ?";
 
-        $resultat = $this->executeRequete($sql, array($this->parametre['Payment']));
+        $resultat = $this->executeRequete($sql, array($this->parametre['ResNo']));
 
         return new ReservationsTable($resultat->fetch(PDO::FETCH_ASSOC));
 
@@ -74,11 +74,25 @@ class ReservationsModele extends modele
     public function updateUneReservation(): bool
     {
 
+        $sql = "UPDATE reservations SET LastName = ?, FirstName = ?, Address = ?, City = ?, State = ?, Postal = ?, Payment = ?, Amount = ?, Hotel = ?, Room = ?, DateIn = ?, DateOut = ? WHERE ResNo = ?";
 
-        $sql = "UPDATE paymenttypes SET Description = ? WHERE Payment = ?";
-
-        $resultat = $this->executeRequete($sql, array($this->parametre['type_paiement'], $this->parametre['Payment']));
-
+        $resultat = $this->executeRequete($sql, array(
+            $this->parametre['LastName'],
+            $this->parametre['FirstName'],
+            $this->parametre['Address'],
+            $this->parametre['City'],
+            $this->parametre['State'],
+            $this->parametre['Postal'],
+            $this->parametre['Payment'],
+            $this->parametre['Amount'],
+            $this->parametre['Hotel'],
+            $this->parametre['Room'],
+            $this->parametre['DateIn'],
+            $this->parametre['DateOut'],
+            $this->parametre['ResNo']
+        ));
+//        var_dump($resultat);
+//        die();
         if ($resultat->rowCount() > 0) {
             return true; // modification effectué
         } else {
@@ -91,7 +105,7 @@ class ReservationsModele extends modele
 
         $sql = "DELETE FROM reservations WHERE ResNo = ?";
 
-        $resultat = $this->executeRequete($sql, array($this->parametre['id']));
+        $resultat = $this->executeRequete($sql, array($this->parametre['ResNo']));
 
         if ($resultat->rowCount() > 0) {
             return true; // modification effectué

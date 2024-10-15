@@ -37,7 +37,7 @@ class ReservationsControleur
     }
     public function form_ajouter(){
 
-        $valeurs = "";
+        $valeurs = new ReservationsTable();
 
         $action = $_POST['action'];
 

@@ -68,8 +68,8 @@
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
                         <li><a href="#index.php">Accueil</a></li>
-                        <li><a href="index.php?gestion=reservations">Liste des paiements</a></li>
-                        <li class="active">Fiche d'un moyen de paiement</li>
+                        <li><a href="index.php?gestion=reservations">Liste des réservations</a></li>
+                        <li class="active">Fiche d'une réservation</li>
                     </ol>
                 </div>
             </div>
@@ -80,50 +80,96 @@
         <div class="animated fadeIn">
 
             <div class="row">
-
                 <div class="col-md-6">
-
                     <div class="card">
-                        <div class="card-header"><strong><!-- TITRE PAGE --></strong></div>
-                        <form action="index.php" method="POST">
-                            <input type="hidden" name="gestion" value="reservations">
-                            <input type="hidden" name="action" value="{$action}">
+                        <div class="card-header"><strong>Reservation Details</strong></div>
+                        <div class="card-body card-block">
+                            <form action="index.php" method="POST">
+                                <input type="hidden" name="gestion" value="reservations">
+                                <input type="hidden" name="action" value="{$action}">
 
-                            <div class="card-body card-block">
-                                <!-- ICI CHAMPS DU FORMULAIRE -->
-                                {if $action != 'ajouter'}
                                 <div class="form-group">
-                                    <label for="id" class="form-control-label">ID</label>
-                                    <input type="text" id="id" name="id" class="form-control" value="{$unPaiementtype->getPayment()}" readonly>
+                                    <label for="ResNo" class="form-control-label">Reservation Number</label>
+                                    <input type="text" id="ResNo" name="ResNo" class="form-control" value="{$uneReservation->getResNo()}" readonly>
                                 </div>
                                 <div class="form-group">
-                                    <label for="type_paiement" class="form-control-label">Type de Paiement</label>
-                                    <input type="text" id="type_paiement" name="type_paiement" class="form-control" value="{$unPaiementtype->getDescription()}" {$readonly}>
+                                    <label for="LastName" class="form-control-label">Last Name</label>
+                                    <input type="text" id="LastName" name="LastName" class="form-control" value="{$uneReservation->getLastName()}"{$readonly}>
                                 </div>
-                                {else}
                                 <div class="form-group">
-                                    <label for="type_paiement" class="form-control-label">Type de Paiement</label>
-                                    <input type="text" id="type_paiement" name="type_paiement" class="form-control" value="" {$readonly}>
+                                    <label for="FirstName" class="form-control-label">First Name</label>
+                                    <input type="text" id="FirstName" name="FirstName" class="form-control" value="{$uneReservation->getFirstName()}"{$readonly}>
                                 </div>
-                                {/if}
-                            </div>
-
-                            <div class="card-body card-block">
-                                <div class="col-md-6">
-                                    <input type='button' class="btn btn-submit" value='Retour' onclick='location.href = "index.php?gestion=paymenttypes"'>
+                                <div class="form-group">
+                                    <label for="Address" class="form-control-label">Address</label>
+                                    <input type="text" id="Address" name="Address" class="form-control" value="{$uneReservation->getAddress()}"{$readonly}>
                                 </div>
-                                {if $action != 'consulter'}
-                                    <div class="col-md-6">
-                                        <button type="submit" class="btn btn-primary">{$titreBtnSubmit}</button>
-                                    </div>
-                                {/if}
-                                <br>
-                            </div>
-                        </form>
+                                <div class="form-group">
+                                    <label for="City" class="form-control-label">City</label>
+                                    <input type="text" id="City" name="City" class="form-control" value="{$uneReservation->getCity()}"{$readonly}>
+                                </div>
+                                <div class="form-group">
+                                    <label for="State" class="form-control-label">State</label>
+                                    <input type="text" id="State" name="State" class="form-control" value="{$uneReservation->getState()}"{$readonly}>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Postal" class="form-control-label">Postal Code</label>
+                                    <input type="text" id="Postal" name="Postal" class="form-control" value="{$uneReservation->getPostal()}"{$readonly}>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Phone" class="form-control-label">Phone</label>
+                                    <input type="text" id="Phone" name="Phone" class="form-control" value="{$uneReservation->getPhone()}"{$readonly}>
+                                </div>
+                        </div>
                     </div>
                 </div>
 
-            </div><!-- .animated -->
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header"><strong>Payment and Stay Details</strong></div>
+                        <div class="card-body card-block">
+
+                                <div class="form-group">
+                                    <label for="Payment" class="form-control-label">Payment</label>
+                                    <input type="text" id="Payment" name="Payment" class="form-control" value="{$uneReservation->getPayment()}" {$readonly}>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Amount" class="form-control-label">Amount</label>
+                                    <input type="text" id="Amount" name="Amount" class="form-control" value="{$uneReservation->getAmount()}"{$readonly}>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Hotel" class="form-control-label">Hotel</label>
+                                    <input type="text" id="Hotel" name="Hotel" class="form-control" value="{$uneReservation->getHotel()}"{$readonly}>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Room" class="form-control-label">Room</label>
+                                    <input type="text" id="Room" name="Room" class="form-control" value="{$uneReservation->getRoom()}"{$readonly}>
+                                </div>
+                                <div class="form-group">
+                                    <label for="DateIn" class="form-control-label">Date In</label>
+                                    <input type="date" id="DateIn" name="DateIn" class="form-control" value="{$uneReservation->getDateIn()}"{$readonly}>
+                                </div>
+                                <div class="form-group">
+                                    <label for="DateOut" class="form-control-label">Date Out</label>
+                                    <input type="date" id="DateOut" name="DateOut" class="form-control" value="{$uneReservation->getDateOut()}"{$readonly}>
+                                </div>
+
+                                <div class="card-body card-block">
+                                    <div class="col-md-6">
+                                        <input type='button' class="btn btn-submit" value='Retour' onclick='location.href = "index.php?gestion=reservations"'>
+                                    </div>
+                                    {if $action != 'consulter'}
+                                        <div class="col-md-6">
+                                            <button type="submit" class="btn btn-primary">{$titreBtnSubmit}</button>
+                                        </div>
+                                    {/if}
+                                    <br>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div><!-- .content -->
 
 

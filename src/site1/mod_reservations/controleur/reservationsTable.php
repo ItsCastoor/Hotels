@@ -15,7 +15,7 @@ class ReservationsTable
     private $Postal = "";
     private $Phone = "";
     private $Payment = "";
-    private $Amout = "";
+    private $Amount = "";
     private $Hotel = "";
     private $Room = "";
     private $DateIn = "";
@@ -93,9 +93,9 @@ class ReservationsTable
         $this->Payment = $Payment;
     }
 
-    public function setAmout(string $Amout): void
+    public function setAmount(string $Amount): void
     {
-        $this->Amout = $Amout;
+        $this->Amount = $Amount;
     }
 
     public function setHotel(string $Hotel): void
@@ -170,9 +170,9 @@ class ReservationsTable
         return $this->Payment;
     }
 
-    public function getAmout(): string
+    public function getAmount(): string
     {
-        return $this->Amout;
+        return $this->Amount;
     }
 
     public function getHotel(): string

@@ -123,7 +123,7 @@
                                             <form method="POST" action="index.php">
                                                 <input type="hidden" name="gestion" value="reservations">
                                                 <input type="hidden" name="action" value="form_consulter">
-                                                <input type="hidden" name="Payment" value="{$reservation->getResNo()}">
+                                                <input type="hidden" name="ResNo" value="{$reservation->getResNo()}">
                                                 <input id="pImage" type="image" name="btn_consulter" src='public/images/icones/p16.png'>
                                             </form>
                                         </td>
@@ -131,7 +131,7 @@
                                             <form method="POST" action="index.php">
                                                 <input type="hidden" name="gestion" value="reservations">
                                                 <input type="hidden" name="action" value="form_modifier">
-                                                <input type="hidden" name="Payment" value="{$reservation->getResNo()}">
+                                                <input type="hidden" name="ResNo" value="{$reservation->getResNo()}">
                                                 <input id="pImage" type="image" name="btn_modifier" src='public/images/icones/m16.png'>
                                             </form>
                                         </td>
@@ -139,7 +139,7 @@
                                             <form method="POST" action="index.php">
                                                 <input type="hidden" name="gestion" value="reservations">
                                                 <input type="hidden" name="action" value="form_supprimer">
-                                                <input type="hidden" name="Payment" value="{$reservation->getResNo()}">
+                                                <input type="hidden" name="ResNo" value="{$reservation->getResNo()}">
 
                                                 <input id="sImage" type="image" name="btn_supprimer" src='public/images/icones/s16.png'>
                                             </form>
